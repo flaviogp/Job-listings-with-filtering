@@ -13,5 +13,26 @@
 @layer base {
   html {
     font-family: "League Spartan", serif;
+    line-height: normal;
+  }
+
+  .scroll-style::-webkit-scrollbar {
+    height: 5px
+  }
+
+  /* Track */
+  .scroll-style::-webkit-scrollbar-track {
+    background: hsl(180, 31%, 95%);
+  }
+
+  /* Handle */
+  .scroll-style::-webkit-scrollbar-thumb {
+    background: hsl(180, 29%, 50%);
+    border-radius: 5px;
+  }
+
+  /* Handle on hover */
+  .scroll-style::-webkit-scrollbar-thumb:hover {
+    background: hsl(180, 8%, 52%);
   }
 }
