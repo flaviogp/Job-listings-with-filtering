@@ -51,10 +51,16 @@ const MainContainer = () => {
     setFilterList(newList);
   };
 
+  const handleClearFilterList = () => setFilterList([]);
+
   return (
-    <main className="bg-light-grayish-cyan-bg relative container flex flex-col justify-center space-y-10 p-5 py-24">
+    <main className="bg-light-grayish-cyan-bg relative flex w-full flex-col justify-center space-y-10 p-5 py-24">
       {filterList.length >= 1 && (
-        <Filter badges={filterList} handleRemoveFilter={handleRemoveFilter} />
+        <Filter
+          badges={filterList}
+          handleRemoveFilter={handleRemoveFilter}
+          handleClearFilterList={handleClearFilterList}
+        />
       )}
       {jobList.map((job) => (
         <Card key={job.company} data={job} handleSetFilter={handleSetFilter} />
