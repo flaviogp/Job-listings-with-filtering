@@ -14,16 +14,26 @@ const MainContainer = () => {
   useEffect(() => {
     const handleFilterJobs = () => {
       if (filterList.length === 0) setJobList(_data);
+      const newJobList: DataType[] = [];
       console.log(filterList);
-      let newJobList: DataType[] = [];
-      filterList.map((f) => {
-        const d = _data.filter((d) => d.languages.includes(f));
-        console.log(d);
-        newJobList = [...d];
+      filterList.map((filter) => {
+        // Filter by languages
+        const jobs = _data.filter(
+          (job) =>
+            (job.languages.includes(filter) ||
+              job.role === filter ||
+              job.position === filter ||
+              job.level === filter) &&
+            !newJobList.includes(job),
+        );
+        newJobList.push(...jobs);
+        console.log(newJobList);
       });
+
+      // Filter by role
+
       if (newJobList.length === 0) return;
       setJobList([...newJobList]);
-      console.log(jobList);
     };
 
     handleFilterJobs();

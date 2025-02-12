@@ -1,4 +1,5 @@
-export type DataType = {
+export type DataType ={ 
+    id:string
     company: string;
     logo: string;
     isNew: boolean;
